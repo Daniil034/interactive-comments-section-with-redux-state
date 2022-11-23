@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [frontendmentor.io](https://your-solution-url.com)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/interactive-comments-section-using-react-and-redux-state-VpMMDRqPHB)
 - Live Site URL: [Github pages](https://daniil034.github.io/interactive-comments-section-with-redux-state/)
 
 ## My process
