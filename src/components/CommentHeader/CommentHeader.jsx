@@ -11,7 +11,6 @@ export const CommentHeader = ({
     `../../data/images/avatars/${userImage.png.slice(17)}`,
     import.meta.url
   ).href;
-  console.log(userImage.png);
   const userImageWEBP = useRef();
   const onImageError = () => {
     userImageWEBP.current.src = new URL(
