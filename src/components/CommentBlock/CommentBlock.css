@@ -1,0 +1,25 @@
+.replies {
+  margin-left: auto;
+  position: relative;
+  max-width: 642px;
+}
+
+.replies::before {
+  content: "";
+  position: absolute;
+  height: 97.21%;
+  left: -43px;
+  margin-right: 100px;
+  width: 2px;
+  background-color: var(--light-gray);
+}
+
+@media (max-width: 740px) {
+  .replies {
+    margin-left: 18px;
+    max-width: none;
+  }
+  .replies::before {
+    left: -16px;
+  }
+}

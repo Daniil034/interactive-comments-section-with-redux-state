@@ -1,0 +1,47 @@
+.add-comment {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 40px 1fr 104px;
+  grid-template-areas: "add-comment__user-image add-comment__text-area add-comment__button";
+  gap: 16px;
+  align-items: start;
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 8px;
+}
+
+.add-comment__user-image {
+  grid-area: add-comment__user-image;
+  width: 40px;
+}
+
+.add-comment__text-area {
+  grid-area: add-comment__text-area;
+  resize: none;
+  height: 96px;
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.add-comment__text-area:focus {
+  outline: none;
+  border: 1px solid var(--moderate-blue);
+}
+
+@media (max-width: 630px) {
+  .add-comment {
+    grid-template-columns: 40px 1fr;
+    grid-template-areas:
+      "add-comment__text-area add-comment__text-area"
+      "add-comment__user-image add-comment__button";
+  }
+  .add-comment__button {
+    justify-self: end;
+  }
+}

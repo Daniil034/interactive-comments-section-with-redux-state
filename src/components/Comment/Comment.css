@@ -1,0 +1,39 @@
+.comment-main {
+  margin-bottom: 8px;
+  display: grid;
+  grid-template: 32px auto auto / 64px auto auto;
+  grid-template-areas:
+    "score-counter comment-header comment-action-buttons"
+    "score-counter comment-text comment-text"
+    "update-button update-button update-button";
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 24px;
+  align-items: start;
+  justify-items: start;
+  align-content: end;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.replies > .comment:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 630px) {
+  .comment-main {
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "comment-header comment-header"
+      "comment-text comment-text"
+      "score-counter comment-action-buttons"
+      "update-button update-button";
+    padding: 16px;
+  }
+  .comment,
+  .replies > .comment:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}

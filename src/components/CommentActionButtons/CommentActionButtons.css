@@ -1,0 +1,57 @@
+.comment-action-buttons {
+  grid-area: comment-action-buttons;
+  display: flex;
+  gap: 24px;
+  justify-self: end;
+  align-self: center;
+}
+
+.comment-action-buttons__reply,
+.comment-action-buttons__edit,
+.comment-action-buttons__delete {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 500;
+  line-height: 24px;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.comment-action-buttons__reply,
+.comment-action-buttons__edit {
+  color: var(--moderate-blue);
+}
+
+.comment-action-buttons__edit:hover .comment-action-buttons__edit-svg,
+.comment-action-buttons__reply:hover .comment-action-buttons__reply-svg {
+  fill: var(--light-grayish-blue);
+}
+
+.comment-action-buttons__edit:hover .comment-action-buttons__text,
+.comment-action-buttons__reply:hover .comment-action-buttons__text {
+  color: var(--light-grayish-blue);
+}
+
+.comment-action-buttons__delete {
+  color: var(--soft-red);
+}
+
+.comment-action-buttons__delete:hover .comment-action-buttons__delete-svg {
+  fill: var(--pale-red);
+}
+
+.comment-action-buttons__delete:hover .comment-action-buttons__text {
+  color: var(--pale-red);
+}
+
+@media (max-width: 630px) {
+  .comment-action-buttons {
+    gap: 16px;
+  }
+}

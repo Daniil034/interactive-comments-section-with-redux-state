@@ -1,0 +1,46 @@
+.button {
+  text-transform: uppercase;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--white);
+}
+
+.button__blue {
+  min-width: 104px;
+  background-color: var(--moderate-blue);
+}
+
+.button__blue:hover {
+  background-color: var(--light-grayish-blue);
+}
+
+.button__cancel,
+.button__delete {
+  width: 161px;
+}
+
+.button__cancel {
+  background-color: var(--grayish-blue);
+}
+
+.button__delete {
+  background-color: var(--soft-red);
+}
+
+.add-comment__button {
+  grid-area: add-comment__button;
+}
+
+@media (max-width: 630px) {
+  .button__cancel,
+  .button__delete {
+    width: 138px;
+  }
+}
