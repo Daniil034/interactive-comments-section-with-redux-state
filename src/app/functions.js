@@ -14,12 +14,12 @@ export const getId = (currentComments) => {
   return id + 1;
 };
 
-export const leftImprint = (comment, currentUser) => {
-  const userImprint = Object.keys(comment.reactions).findIndex(
-    (reaction) => reaction === currentUser.username
-  );
+export const leftImprint = (comment, username) => {
+  const userImprint = Object.keys(comment.reactions).findIndex((reaction) => {
+    return reaction === username;
+  });
   if (userImprint === -1) {
     return 2;
   }
-  return comment.reactions[userImprint];
+  return comment.reactions[username];
 };

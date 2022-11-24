@@ -16,7 +16,10 @@ export const AddCommentSection = ({
   const [textArea, setTextArea] = useState(
     comment ? `@${comment.user.username} ` : ""
   );
-  const userImagePNG = new URL(`../../data/images/avatars/${image.png.slice(17)}`, import.meta.url).href;
+  const userImagePNG = new URL(
+    `../../data/images/avatars/${image.png.slice(17)}`,
+    import.meta.url
+  ).href;
   const userImageWEBP = useRef();
   const textAreaRef = useRef(null);
   const dispatch = useDispatch();
@@ -50,6 +53,7 @@ export const AddCommentSection = ({
             username: currentUser.username,
           },
           replies: [],
+          reactions: {},
         })
       );
       setTextArea("");
@@ -70,6 +74,7 @@ export const AddCommentSection = ({
             score: 0,
             replyingTo: comment.user.username,
             user: currentUser,
+            reactions: {},
           },
         })
       );
@@ -81,7 +86,9 @@ export const AddCommentSection = ({
   };
 
   const onImageError = () =>
-    (userImageWEBP.current.src = `../../data/images/avatars/${image.webp.slice(17)}`);
+    (userImageWEBP.current.src = `../../data/images/avatars/${image.webp.slice(
+      17
+    )}`);
 
   return (
     <form className="add-comment" onSubmit={handleSubmit}>

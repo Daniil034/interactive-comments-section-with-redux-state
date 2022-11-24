@@ -1,32 +1,61 @@
 import "./ScoreCounter.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseScore,
   increaseScore,
+  leaveUserImprint,
 } from "../../features/comments/commentsSlice";
 import { leftImprint } from "../../app/functions";
 
 export const ScoreCounter = ({ score, comment, currentUser }) => {
   const dispatch = useDispatch();
 
-  // const userImprint = leftImprint(comment, currentUser);
+  const userImprint = leftImprint(comment, currentUser.username);
 
   const handlePlus = (e) => {
     e.preventDefault();
-    dispatch(
-      increaseScore({
-        id: comment.id,
-      })
-    );
+    if (userImprint === 2) {
+      dispatch(
+        leaveUserImprint({ id: comment.id, user: currentUser.username })
+      );
+      dispatch(
+        increaseScore({
+          id: comment.id,
+          user: currentUser.username,
+        })
+      );
+    }
+    if (userImprint < 1) {
+      dispatch(
+        increaseScore({
+          id: comment.id,
+          user: currentUser.username,
+        })
+      );
+    }
   };
 
   const handleMinus = (e) => {
     e.preventDefault();
-    dispatch(
-      decreaseScore({
-        id: comment.id,
-      })
-    );
+    if (userImprint === 2) {
+      dispatch(
+        leaveUserImprint({ id: comment.id, user: currentUser.username })
+      );
+      dispatch(
+        decreaseScore({
+          id: comment.id,
+          user: currentUser.username,
+        })
+      );
+    }
+    if (userImprint > -1 && userImprint !== 2) {
+      dispatch(
+        decreaseScore({
+          id: comment.id,
+          user: currentUser.username,
+        })
+      );
+    }
   };
 
   return (

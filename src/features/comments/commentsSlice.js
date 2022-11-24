@@ -65,15 +65,30 @@ export const commentsSlice = createSlice({
       commentFound.replies.push(action.payload.content);
       localStorage.setItem("reduxState", JSON.stringify(state));
     },
+    leaveUserImprint: (state, action) => {
+      state.forEach((comment) => {
+        comment.replies.forEach((reply) => {
+          if (reply.id === action.payload.id) {
+            reply.reactions[action.payload.user] = 0;
+          }
+        });
+        if (comment.id === action.payload.id) {
+          comment.reactions[action.payload.user] = 0;
+        }
+      });
+      localStorage.setItem("reduxState", JSON.stringify(state));
+    },
     increaseScore: (state, action) => {
       state.forEach((comment) => {
         comment.replies.forEach((reply) => {
           if (reply.id === action.payload.id) {
             reply.score += 1;
+            reply.reactions[action.payload.user] += 1;
           }
         });
         if (comment.id === action.payload.id) {
           comment.score += 1;
+          comment.reactions[action.payload.user] += 1;
         }
       });
       localStorage.setItem("reduxState", JSON.stringify(state));
@@ -83,10 +98,12 @@ export const commentsSlice = createSlice({
         comment.replies.forEach((reply) => {
           if (reply.id === action.payload.id) {
             reply.score -= 1;
+            reply.reactions[action.payload.user] -= 1;
           }
         });
         if (comment.id === action.payload.id) {
           comment.score -= 1;
+          comment.reactions[action.payload.user] -= 1;
         }
       });
       localStorage.setItem("reduxState", JSON.stringify(state));
@@ -105,4 +122,5 @@ export const {
   addReply,
   increaseScore,
   decreaseScore,
+  leaveUserImprint
 } = commentsSlice.actions;
